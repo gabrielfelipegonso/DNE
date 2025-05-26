@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de Documento do Estudante</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      max-width: 100%;
+      margin: 0 auto;
+      color: #333;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .header img.logo {
+      width: 60px;
+    }
+    .status {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 16px 0;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .fields {
+      flex: 2;
+      min-width: 200px;
+    }
+    .photo {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+    }
+    .photo img {
+      width: 100%;
+      max-width: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+    .field {
+      margin-bottom: 12px;
+    }
+    .field strong {
+      display: inline-block;
+      width: 140px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #777;
+    }
+    @media (max-width: 600px) {
+      .field strong {
+        width: 100%;
+        margin-bottom: 4px;
+      }
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="./sdsadsadsa.png" alt="Logo UNE" class="logo" />
+      <h2>Verificação de Documento do Estudante</h2>
+    </div>
+
+    <div class="status">DOCUMENTO VÁLIDO</div>
+
+    <div class="content">
+      <div class="fields">
+        <div class="field"><strong>Nome:</strong> Gabriel Felipe Gonçalves So</div>
+        <div class="field"><strong>Instituição:</strong> Universidade XYZ</div>
+        <div class="field"><strong>Curso:</strong>Inteligência artificial</div>
+        <div class="field"><strong>Nível:</strong> Pós-graduação</div>
+        <div class="field"><strong>Validade:</strong> 31/03/2026</div>
+        <div class="field">
+          <strong>Código de verificação:</strong> <span id="codigoVerificacao"></span>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="./59d2521e-33b1-45f0-be24-ed7b72d96ebc.png" alt="Foto do Estudante" />
+      </div>
+    </div>
+
+    <div class="footer">
+      Para mais informações, acesse <a href="https://www.documentodoestudante.com.br">www.documentodoestudante.com.br</a>
+    </div>
+  </div>
+
+  <script>
+    function gerarHash(tamanho) {
+      const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let resultado = "";
+      for (let i = 0; i < tamanho; i++) {
+        resultado += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+      }
+      return resultado;
+    }
+
+    document.getElementById("codigoVerificacao").textContent = gerarHash(10);
+  </script>
+</body>
+</html>
